@@ -41,6 +41,7 @@
 		4447A4F11DA9E5DC00C5B48C /* CountryWithChinese.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CountryWithChinese.geojson; sourceTree = "<group>"; };
 		4447A4F21DA9E5DC00C5B48C /* Directions.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 		4447A4F51DA9E5E500C5B48C /* CountryCodeHelper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CountryCodeHelper; sourceTree = "<group>"; };
+		4447A4F71DA9E5E500C5B48C /* CC.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = CC.geojson; sourceTree = "<group>"; };
 		44EE181B1D98A751000FF4EE /* generatePlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = generatePlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EE181E1D98A751000FF4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44EE18201D98A751000FF4EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 				4447A4F51DA9E5E500C5B48C /* CountryCodeHelper */,
 				4447A4F11DA9E5DC00C5B48C /* CountryWithChinese.geojson */,
 				4447A4F21DA9E5DC00C5B48C /* Directions.geojson */,
+				4447A4F71DA9E5E500C5B48C /* CC.geojson */,
 			);
 			path = generatePlist;
 			sourceTree = "<group>";

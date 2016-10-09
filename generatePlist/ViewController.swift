@@ -16,10 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generate()
-//        addChinese()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+  
     func generate() {
         let codeDict = getDataFromJson()
         print(codeDict.keys.count)
@@ -35,8 +33,6 @@ class ViewController: UIViewController {
             let national_number_lengths = dialling["national_number_lengths"]
             let name = country["name"] as! [String: AnyObject]
             let common_name = name["common"] as! String
-            
-            var chinese_spelling = ""
             var sortPriority = "0"
             
             if isValid(diallingCode as AnyObject?) && isValid(national_number_lengths) {
@@ -54,7 +50,7 @@ class ViewController: UIViewController {
                     dict["chinese_name"] = chinese_name as AnyObject?
                     CountryCodeArray.append(dict)
                 } else if diallingCode!.count > 1 {
-                    var count = diallingCode!.count
+                    let count = diallingCode!.count
                     for index in 0..<count {
                         dict["calling_code"] = (diallingCode! as [String])[index]
                         dict["common_name"] = common_name as AnyObject?
@@ -102,25 +98,7 @@ class ViewController: UIViewController {
             return name1 < name2
         }
         writeToPlist(sortedArray as NSArray)
-        
-        
-        
     }
-//    
-//        func sortArray(array: [[String: AnyObject?]]) -> [[String: AnyObject?]]{
-//            let arrayToSort = array as! NSArray
-////            arrayToSort.sort
-//    
-//            let newArray = array.sorted { (item1, item2) -> Bool in
-//                let name1 = item1["common_name"] as! String
-//                let name2 = item2["common_name"] as! String
-//                return name1 < name2
-//            }
-//            writeToPlist(fileArray: newArray as! NSArray)
-//    
-//    
-//            return newArray
-//        }
     
     func getChineseName(enName: String, diallingCode: String ,codeArray2: [[String: String]]) -> String {
         var chinese_name = ""
@@ -164,9 +142,7 @@ class ViewController: UIViewController {
     func getDataFromJson() -> [String: AnyObject] {
         let stringPath = NSBundle.mainBundle().pathForResource("Directions.geojson", ofType: nil)
         let data = NSData(contentsOfFile: stringPath!)
-        
         var codeDict = [String: AnyObject]()
-        
         do {
             let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
             codeDict = dict as! [String: AnyObject]
@@ -201,79 +177,5 @@ class ViewController: UIViewController {
         }
         return printArray
     }
-    
-    func notFoundCountry() {
-        
-        //        Optional(Optional("阿森松"))
-        //        Optional(Optional("多米尼加共和国"))
-        //        Optional(Optional("哈萨克斯坦"))
-        //        Optional(Optional("吉尔吉斯坦"))
-        //        Optional(Optional("荷属安的列斯"))
-        //        Optional(Optional("东萨摩亚(美)"))
-        //        Optional(Optional("圣文森特"))
-        //        Optional(Optional("特立尼达和多巴哥"))
-        //        Optional(Optional("美国"))
-        
-        //        多米尼加联邦 DOMINICA(COMMOMWEALTHOF) 1767 -12
-        //        多米尼加共和国 DOMINICAN REP 1809 -12
-        
-        //        Eritrea not found
-        //        Palau not found
-        //        Saint Martin not found
-        //        Sint Maarten not found
-        //        Bosnia and Herzegovina not found
-        //        Timor-Leste not found
-        //        Marshall Islands not found
-        //        Kiribati not found
-        //        Uzbekistan not found
-        //        Anguilla not found
-        //        Guinea-Bissau not found
-        //        Turks and Caicos Islands not found
-        //        Vanuatu not found
-        //        Niue not found
-        //        Saint Pierre and Miquelon not found
-        //        Croatia not found
-        //        Norfolk Island not found
-        //        Dominica not found
-        //        Macedonia not found
-        //        Curaçao not found
-        //        Trinidad and Tobago not found
-        //        Kazakhstan not found
-        //        Aruba not found
-        //        Palestine not found
-        //        Grenada not found
-        //        United States Virgin Islands not found
-        //        Greenland not found
-        //        Zambia not found
-        //        Tokelau not found
-        //        American Samoa not found
-        //        Svalbard and Jan Mayen not found
-        //        Saint Barthélemy not found
-        //        Montenegro not found
-        //        Vatican City not found
-        //        Bhutan not found
-        //        Kyrgyzstan not found
-        //        Mauritania not found
-        //        British Virgin Islands not found
-        //        New Caledonia not found
-        //        South Sudan not found
-        //        Comoros not found
-        //        Tuvalu not found
-        //        Cape Verde not found
-        //        British Indian Ocean Territory not found
-        //        Guadeloupe not found
-        //        Albania not found
-        //        Ivory Coast not found
-        //        Rwanda not found
-        //        Falkland Islands not found
-        //        Saint Kitts and Nevis not found
-        //        Wallis and Futuna not found
-        //        Equatorial Guinea not found
-        //        South Georgia not found
-        //        Micronesia not found
-        //        Faroe Islands not found
-    }
-
-
 }
 
